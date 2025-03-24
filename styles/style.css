@@ -1,0 +1,461 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    cursor: pointer;
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+.container {
+    max-width: 1500px;
+    padding-inline: var(--size-container-padding);
+    margin-inline: auto;
+
+    @media (width <=1500px) {
+        max-width: 1200px;
+    }
+
+}
+
+body {
+    color: var(--color-base-light);
+    font-family: 'Istok Web';
+}
+
+section {
+    & h2.absolute {
+        font-size: 30px;
+        font-weight: 400;
+        position: absolute;
+        top: 70px;
+        left: var(--size-container-padding);
+
+        @media (width >=768px) {
+            top: 140px;
+        }
+    }
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    padding-block: 20px;
+
+    & .container {
+        display: flex;
+        gap: 190px;
+    }
+
+    & .logo {
+        height: 40px;
+
+        @media (width >=768px) {
+            height: 80px;
+        }
+    }
+
+    nav {
+        display: flex;
+        gap: 100px;
+        align-items: center;
+
+        @media (width <1366px) {
+            display: none;
+        }
+
+        & a {
+            text-decoration: none;
+        }
+    }
+
+    & button.menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        font-size: 30px;
+        color: var(--color-base-light);
+
+        @media (width >=1366px) {
+            display: none;
+        }
+
+        @media (width >=768px) {
+            font-size: 50px;
+        }
+    }
+}
+
+section.hero {
+    background-size: cover;
+
+    @media (width <768px) {
+        padding-top: 80px;
+    }
+
+    & .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media (width >=768px) {
+            height: 100vh;
+            gap: 175px;
+        }
+
+        @media (width <768px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    & h1 {
+        & img {
+            height: 26vh;
+            object-fit: contain;
+
+            @media (width < 1366px) {
+                height: 20vh;
+            }
+        }
+    }
+
+    & .container {
+        display: flex;
+        justify-content: space-between;
+
+        @media (width <768px) {
+            flex-direction: column;
+        }
+    }
+
+    & .decoration {
+        --width: 35vh;
+        width: var(--width);
+        position: relative;
+
+
+
+        @media (width >=1366px) {
+            margin-right: 6vw;
+            --width: 45vh;
+        }
+
+        @media (width <768px) {
+            margin-inline: auto;
+        }
+
+        & img {
+            @media (width >=768px) {
+                position: absolute;
+            }
+        }
+
+        & .phone {
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: var(--width);
+        }
+
+        & .cable {
+            width: calc(var(--width) / 100 * 70);
+            bottom: 0;
+            left: calc(var(--width) / 10);
+
+            @media (width <768px) {
+                display: none;
+            }
+        }
+
+    }
+}
+
+section.music {
+    position: relative;
+
+    background: var(--color-accent);
+
+    & .container {
+        position: relative;
+    }
+
+    & .music-picture {
+        --height: 70vh;
+        position: absolute;
+        height: var(--height);
+        top: calc(50% - var(--height) / 2);
+        right: 0;
+        object-fit: contain;
+    }
+
+
+
+    & .buttons {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        max-width: 392px;
+        width: 100%;
+        justify-content: center;
+        gap: 100px;
+
+        & button {
+            background: linear-gradient(to right, #b43f18, #f3511b);
+            color: var(--color-base-light);
+            font-family: inherit;
+            font-size: 40px;
+            padding: 0.4em;
+            border: 1px solid hsla(0, 0%, 0%, 0.5);
+            box-shadow: -4px -4px 30px hsla(0, 0%, 100%, 0.1), 4px 4px 4px hsla(0, 0%, 0%, 0.5);
+            line-height: 1;
+
+            @media (width <768px) {
+                font-size: 30px;
+            }
+        }
+    }
+
+}
+
+section.about {
+    background: var(--color-base-dark);
+    position: relative;
+    z-index: 0;
+
+    & .gradient {
+        height: 70px;
+        background: linear-gradient(hsla(12, 95%, 43%, 1), rgba(0, 0, 0, 0));
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    & .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    & p {
+        /* Контент не абсолютим */
+        font-size: 30px;
+        max-width: 980px;
+
+    }
+}
+
+section.store {
+    background: var(--color-accent);
+    position: relative;
+
+    @media (width >=768px) and (width < 1366px) {
+        padding-block: 70px;
+    }
+
+    @media (width >=1366px) {
+        padding-bottom: 70px;
+    }
+
+    @media (width <768px) {
+        padding-bottom: 50px;
+    }
+
+    & .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+
+        @media (width <768px) {
+            padding-top: 160px;
+        }
+
+        @media (width < 1366px) {
+            flex-direction: column;
+            gap: 100px;
+        }
+    }
+
+    & .left {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 70px;
+        max-width: 420px;
+        flex-shrink: 0;
+
+        @media (width >=1366px) {
+            height: 100vh;
+        }
+    }
+
+    & .right {
+        & img {
+            object-fit: contain;
+        }
+    }
+
+    & .buttons {
+        display: flex;
+        gap: 48px;
+        flex-direction: column;
+
+        @media (width >=768px) {
+            flex-direction: row;
+        }
+
+        @media (width >=1366px) {
+            flex-direction: column;
+        }
+
+
+        & button {
+            color: var(--color-base-light);
+            background-color: var(--color-base-dark);
+            border-radius: 999px;
+            line-height: 1.2;
+            padding: 8px;
+            transition: all .3s ease-in-out;
+            border: 1px solid rgba(0, 0, 0, 0.7);
+            box-shadow:
+                -4px -4px 4px hsla(0, 0%, 100%, 0.1),
+                4px 4px 4px hsla(0, 0%, 0%, 0.25);
+            font-size: 20px;
+            max-width: 240px;
+            width: 100%;
+
+            &:hover {
+                background-color: var(--color-base-light);
+                color: var(--color-base-dark);
+
+            }
+        }
+    }
+
+
+
+
+    & .device {
+        width: 100%;
+
+        @media (width >=1366px) {
+            height: 65vh;
+            width: auto;
+        }
+    }
+
+    & .content {
+
+        & h3 {
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        & p {
+            & a {
+                color: var(--color-base-dark);
+            }
+        }
+    }
+}
+
+footer {
+    background: var(--color-base-dark);
+    padding-block: 120px 75px;
+    position: relative;
+
+
+    & .footer-gradient {
+        height: 24px;
+        background: linear-gradient(hsla(12, 95%, 43%, 1), hsla(0, 0%, 0%, 1));
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+    }
+
+    & .container {
+        display: flex;
+        flex-direction: column;
+
+        @media (width < 1366px) {
+            gap: 50px;
+
+        }
+    }
+
+    & .navigation {
+        display: flex;
+        justify-content: end;
+        gap: 100px;
+
+        @media (width >=1366px) {
+            gap: 150px;
+
+        }
+
+
+        & nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    & .bottom-row {
+        display: flex;
+        gap: 100px;
+
+        & nav {
+            display: flex;
+            flex-grow: 1;
+            align-items: end;
+            gap: 20px;
+
+            @media (width <1366px) {
+                flex-direction: column;
+            }
+
+            @media (width >=1366px) {
+                gap: 100px;
+
+            }
+
+
+            & a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    & .branding {
+        & img {
+            height: 100px;
+            object-fit: contain;
+        }
+    }
+}

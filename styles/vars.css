@@ -1,0 +1,7 @@
+:root {
+    --color-accent: hsla(12, 95%, 43%, 1);
+    --color-base-light: hsla(0, 0%, 100%, 1);
+    --color-base-dark: hsla(0, 0%, 0%, 1);
+
+    --size-container-padding: 50px;
+}
